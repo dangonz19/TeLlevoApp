@@ -1,0 +1,81 @@
+ion-card{
+    max-width: 400px;
+    margin: auto;
+    margin-top: 10px;
+    
+    border-radius: 10px;
+    
+}
+
+ion-card-content{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+ion-icon{
+    font-size: 150px;
+    padding-left: 100px;
+    margin-bottom: 10px;
+    color: rgb(96, 188, 89);
+}
+
+h1{
+    margin-top: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(85, 64, 64);
+}
+
+.iconNom{
+    font-size: 50px;
+    margin: 0;
+    margin-top: 40px;
+}
+
+.iconEmail{
+    font-size: 50px;
+    margin: 0;
+    margin-top: 40px;
+}
+
+.iconContra{
+    font-size: 50px;
+    margin: 0;
+    margin-top: 40px;
+}
+
+.lin24Ini{
+    text-decoration: underline;
+    text-align: center;
+    margin-top: 10px;
+    padding-left: 5px;
+    margin-bottom: 40px;
+}
+
+.lin24Ini:hover{
+    color: rgb(43, 220, 16);
+}
+
+#botonReg{
+    margin-top: 20px;
+}
+
+#tienesUNlin25{
+    margin-top: 10px;
+    
+}
+
+.taxiIcon{
+    padding-left: 10px;
+    font-size: 50px;
+    margin-top: 4px;
+}
+
+#teLlevo{
+    font-family:'Times New Roman', Times, serif;
+    padding-left: 90px;
+}
+
+:placeholder-shown{
+    color: black;
+}

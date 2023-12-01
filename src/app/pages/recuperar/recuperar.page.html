@@ -1,0 +1,16 @@
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-content>
+      <ion-icon name="lock-closed-outline"></ion-icon>
+      <h1>¿Olvidaste tu Contraseña?</h1>
+      <p>¡No te preocupes! Ingresa un correo electrónico válido y recibe instrucciones para recuperar tu contraseña.</p>
+
+      <ion-item>
+        <ion-input [formControl]="userEmail" label="Correo:" labelPlacement="floating" required></ion-input>
+      </ion-item>
+
+      <ion-button (click)="enviCorr()" expand="block" color="success">Confirmar</ion-button>
+      <h4 (click)="login()">Volver al inicio de Sesión</h4>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

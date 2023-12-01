@@ -1,0 +1,98 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Solicitar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-content color="light">
+    <ion-list [inset]="true">
+      <ion-item>
+        <ion-input label="Origen:" placeholder="DuocUc sede San Joaquin"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Destino:" placeholder="Puente Alto"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Costo:" placeholder="$4.000"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Metodos de pago</ion-title>
+          </ion-toolbar>
+        </ion-header>
+      </ion-item>
+      <!-- ---- -->
+        <ion-item (click)="openFirstMenu()">
+          <ion-icon  slot="start" name="card"></ion-icon>
+          <ion-label>
+            <h2>Tarjeta de Crédito</h2>
+            <p>Segura y rápida</p>
+          </ion-label>
+        </ion-item>
+        <ion-radio-group value="strawberries">
+      <!-- ---- -->
+        <ion-item>
+          <ion-icon slot="start" name="storefront-outline"></ion-icon>
+          <ion-label>
+            <h2>Banco estado</h2>
+            <p>Utiliza tu cuenta de Banco estado</p>
+          </ion-label>
+          <ion-radio slot="end" value="paypal"  [(ngModel)]="radioBut"></ion-radio>
+        </ion-item>
+      <!-- ------ -->
+        <ion-item>
+          <ion-icon slot="start" name="cash"></ion-icon>
+          <ion-label>
+            <h2>Efectivo</h2>
+            <p>Paga en efectivo</p>
+          </ion-label>
+          <ion-radio slot="end" value="dolares"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+    <ion-card-header>
+      <ion-button (click)="presentAlert()" color="success">Confirmar</ion-button>
+    </ion-card-header>
+  </ion-content>
+</ion-content>
+
+<!-- menu credito -->
+<ion-menu menuId="first-menu" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Tarjeta</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-item>
+      <ion-label>
+        <h2>Número de Tarjeta:</h2>
+        <ion-input type="text" placeholder="**** **** **** 1234"></ion-input>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h2>Nombre en la Tarjeta:</h2>
+        <ion-input type="text" placeholder="Nombre del Titular"></ion-input>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h2>Fecha de Expiración:</h2>
+        <ion-input type="text" placeholder="MM/AA"></ion-input>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h2>CVC:</h2>
+        <ion-input type="password" placeholder="***"></ion-input>
+      </ion-label>
+    </ion-item>
+    <ion-button expand="block" color="success" (click)="cerrarMenu()"><ion-icon slot="start" name="card"></ion-icon>Confirmar Pago</ion-button>
+  </ion-content>
+</ion-menu>

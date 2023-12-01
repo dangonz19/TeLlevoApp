@@ -1,0 +1,49 @@
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-content>
+      <ion-row>
+        <h1 id="teLlevo">TeLlevoApp</h1><ion-icon class="taxiIcon" name="car-sport-outline"></ion-icon>
+      </ion-row>
+      <ion-icon name="people-circle-outline"></ion-icon>
+      <h1>Registro</h1>
+
+      <ion-item>
+        <ion-input [(ngModel)]="name" type="text" label="Nombre Completo:" labelPlacement="floating" placeholder="Ingrese su nombre"></ion-input>
+        <ion-icon class="iconNom" name="person-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-input [(ngModel)]="email"  type="text" label="Email:" labelPlacement="floating" placeholder="Ingrese su Email"></ion-input>
+        <ion-icon class="iconEmail" name="mail-outline"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-input [(ngModel)]="contrasena" type="password" label="Contraseña:" labelPlacement="floating" placeholder="Ingrese su Contraseña"></ion-input>
+        <ion-icon class="iconContra"  name="lock-closed-outline"></ion-icon>
+      </ion-item>
+
+      <ion-list>
+        <ion-item>
+          <ion-select (ionChange)="cargarComuna()" placeholder="Seleccion region" [(ngModel)]="regionSeleccionado">
+            <ion-select-option [value]="i.id" *ngFor="let i of regiones">{{i.nombre}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <ion-list>
+        <ion-item>
+          <ion-select  placeholder="Seleccion comuna" [(ngModel)]="comunaSeleccionado">
+            <ion-select-option [value]="i.id" *ngFor="let i of comunas">{{i.nombre}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <!-- Agregar la validación en el botón de "Registrarse" -->
+      <ion-button id="botonReg" (click)="registro()" color="success" expand="block"><h4>Registrarse</h4></ion-button>
+
+      <ion-row>
+        <h4 id="tienesUNlin25">Tienes una Cuenta?</h4><br><h4 (click)="login()" class="lin24Ini">Inicia Sesión</h4>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

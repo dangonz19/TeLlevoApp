@@ -1,0 +1,185 @@
+
+<ion-header [translucent]="true" >
+  <ion-toolbar>
+    
+    <!-- <ion-icon (click)="logOut()" slot="end" name="log-out-outline"></ion-icon>  -->
+
+    <div class="ion-page" id="main-content"> 
+      <ion-icon class="menu" (click)="toggle()" slot="start" name="menu-outline"></ion-icon>
+      <ion-title>
+        <ion-row>
+        <h1 id="teLlevo">TeLlevoApp</h1><ion-icon class="taxiIcon" name="car-sport-outline"></ion-icon>
+        </ion-row>
+      </ion-title>  
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-icon name="close-outline" slot="end" (click)="cerrarMenu()"></ion-icon>
+      <ion-title>Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content scrollY="false">
+
+    <ion-list>
+      <ion-item (click)="perfil()">
+        <ion-icon style="padding-right: 10px; color: rgb(14, 136, 136);" name="person-circle-outline"></ion-icon>
+        <h3>Perfil</h3>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+      <ion-item (click)="logOut()">
+        <ion-icon style="padding-right: 10px; color: rgb(14, 136, 136);" name="log-out-outline"></ion-icon>
+        
+        <h3>Cerrar Sesión</h3>
+      </ion-item>
+    </ion-list>
+
+  </ion-content>
+  
+</ion-menu>
+
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding"> Tap the button in the toolbar to open the menu. </ion-content>
+</div>
+
+
+
+<ion-content [fullscreen]="true" class="animated-content">
+  
+    
+    <h1 id="msj" class="animated-fade-in">Bienvenido! {{ name }}</h1>
+    <div class="maps">
+      <ion-grid>
+        <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3327.04982829734!2d-70.61886772426142!3d-33.5000807
+        0005562!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d00be4a5fa81%3A0xcd8eaf5b1d547f64!2sDuoc%20UC%3A%20Sede%20S
+        an%20Joaqu%C3%ADn!5e0!3m2!1ses!2scl!4v1693784611093!5m2!1ses!2scl" 
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      </div>
+      </ion-grid>
+    </div>
+
+    
+
+    
+    <div class="opc1">
+      <ion-grid >
+        <ion-row>
+          <ion-col >
+            <button id="Disponible" (click)="play()"  expand="block" (click)="modal()">Disponibilidad</button>
+          </ion-col>
+          <ion-col >
+            <button id="Solicitar" (click)="stop()"  expand="block" (click)="setOpen(true)" >Solicitar</button>
+          </ion-col>
+        </ion-row>      
+      </ion-grid>
+    </div>
+
+    <!-- modal de solicitar -->
+
+    <ion-modal [isOpen]="isModalOpen">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Solicitar</ion-title>
+            <ion-buttons slot="end">
+              <ion-icon slot="end" (click)="setOpen(false)" name="close-outline"></ion-icon>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content [fullscreen]="true">
+          <ion-item>
+            <ion-input id="Origen" label="Origen:" placeholder="DuocUc sede San Joaquin" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input id="Destino" label="Destino:" placeholder="Puente Alto" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input id="Costo" label="Costo:" placeholder="$4.000" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-header>
+              <ion-title>Metodos de pago</ion-title>
+            </ion-header>
+          </ion-item>
+          <ion-radio-group [(ngModel)]="radioBut" value="strawberries">
+            <ion-item>
+              <ion-icon slot="start" name="card"></ion-icon>
+              <ion-label>
+                <h2>Tarjeta de Crédito</h2>
+                <p>Segura y rápida</p>
+              </ion-label>
+              <ion-radio slot="end" value="tarjeta"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-icon slot="start" name="storefront-outline"></ion-icon>
+              <ion-label>
+                <h2>Banco estado</h2>
+                <p>Utiliza tu cuenta de Banco estado</p>
+              </ion-label>
+              <ion-radio slot="end" value="paypal"></ion-radio>
+            </ion-item>
+            <ion-item>
+              <ion-icon slot="start" name="cash"></ion-icon>
+              <ion-label>
+                <h2>Efectivo</h2>
+                <p>Paga en efectivo</p>
+              </ion-label>
+              <ion-radio slot="end" value="dolares"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+          <ion-row>
+            <ion-col>
+              <ion-button class="lin143" expand="block" (click)="confirmarSolicitud()" color="success">Confirmar</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+
+    <!-- informacion de inicio -->
+
+    <ion-row class="lin52">
+      <ion-col class="lin53">
+        <h3 class="lin54"><span id="tellevoApp">TeLlevoApp</span> es una solución a los estudiantes del 
+          instituto <span id="duoc">Duoc</span><span id="uc">UC</span> que no poseen movilización</h3>
+          <h5 id="lin56">TeLlevoAPP capaz de ser utilizada en plataformas tanto como Android e iOS que permita que los alumnos se
+            organicen a través de la App para que puedan retornar a sus hogares utilizando vehículos de algunos alumnos que si tienen
+            movilización propia. </h5>
+      </ion-col>
+    </ion-row>
+    
+    <ion-footer >
+    <ion-toolbar class="footer" color="dark"> 
+        <ion-row >
+          <ion-col id="pintarFooter" size="12">
+            <h3>TeLlevoApp</h3>
+            <p>Tu solución de transporte confiable.</p>
+          </ion-col>
+
+          <ion-col id="pintarFooter" size="12">
+            <h3>Contacto</h3>
+            <p>Dirección: Duoc UC San Joaquin</p>
+            <p>Teléfono: (123) 456-7890</p>
+            <p>Email: info@tellevoapp.com</p>
+          </ion-col>
+        </ion-row>
+      </ion-toolbar> 
+    </ion-footer>
+</ion-content>

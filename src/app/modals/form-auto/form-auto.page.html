@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Formulario</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="light">
+  <ion-list [inset]="true">
+    <ion-item>
+      <ion-input id="Patente" label="Patente" labelPlacement="floating" placeholder="AA-12-12 / AA-AA-12" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input id="Modelo" label="Modelo" labelPlacement="floating" placeholder="Sail" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input id="Marca" label="Marca" labelPlacement="floating" placeholder="Chevrolet" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input id="pato" label="Año" labelPlacement="floating" placeholder="2023" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input id="Color" label="Color" labelPlacement="floating" placeholder="Blanco" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Elegir Imagen</ion-label>
+      <input type="file" (change)="seleccionarImagen($event)">
+    </ion-item>
+
+    <ion-card>
+      <ion-img *ngIf="imagenSeleccionadaURL" [src]="imagenSeleccionadaURL"></ion-img>
+    </ion-card>
+  </ion-list>
+  <ion-button (click)="guardarAuto()" id="GuarAuto" color="success">Agregar</ion-button>
+</ion-content>
